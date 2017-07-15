@@ -14,19 +14,27 @@ showAreaOfCircle :: (Floating a, Show a) => a -> String
 showAreaOfCircle r = "The area of a circle with radius " ++ show r ++ " is about " ++ show (pi * (square r)) ++ "cm^2"
 
 getMax :: Ord a => a -> a -> a
-getMax x y	| x > y = x
-			| x == y = x
-			| otherwise = y
+getMax x y
+  | x > y = x
+  | x == y = x
+  | otherwise = y
 
 isPositive :: (Ord a, Num a) => a -> Int
-isPositive x 	| x < 0 = -1
-				| x == 0 = 0
-				| otherwise = 1
+isPositive x
+  | x < 0 = -1
+  | x == 0 = 0
+  | otherwise = 1
 
 doubleSmallNumber :: Int -> Int
 doubleSmallNumber x = if x > 100
 						 then x
 						 else x*2
+
+getFst :: (a, b) -> a
+getFst (x, y) = x
+
+getSnd :: (a, b) -> b
+getSnd (x, y) = y
 
 myName = "I am a developer!"
 
