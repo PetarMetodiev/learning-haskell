@@ -26,9 +26,15 @@ isPositive x
   | otherwise = 1
 
 doubleSmallNumber :: Int -> Int
-doubleSmallNumber x = if x > 100
-						 then x
-						 else x*2
+doubleSmallNumber x =
+ if x > 100
+ then x
+ else x*2
+
+doubleSmallNumber' :: Int -> Int
+doubleSmallNumber' x
+ | x > 100 = x
+ | otherwise = x*2
 
 getFst :: (a, b) -> a
 getFst (x, y) = x
