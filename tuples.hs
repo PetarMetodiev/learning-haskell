@@ -6,15 +6,22 @@ origin = (0,0)
 
 moveVertical :: Point -> Float -> Point
 moveVertical (x, y) dy = (x, y + dy)
+-- moveVertical point dy = (fst point, snd point + dy)
+
+moveVertical' :: Point -> Float -> Point
+moveVertical' point dy = (fst point, snd point + dy)
 
 moveHorizontal :: Point -> Float -> Point
 moveHorizontal (x, y) dx = (x + dx, y)
+
+moveHorizontal' :: Point -> Float -> Point
+moveHorizontal' point dx = (fst point + dx, snd point)
 
 squareTwo :: Float -> Float -> Float
 squareTwo a b = a*a + b*b
 
 calculateDistance :: Point -> Float
-calculateDistance (x, y) = sqrt (squareTwo x y) - fst origin
+calculateDistance point = sqrt (squareTwo (fst point) (snd point)) - fst origin
 
 -- Color point example
 type Color = String
