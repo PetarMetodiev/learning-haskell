@@ -1,27 +1,27 @@
 -- Point example
-type Point = (Float, Float)
+type Point = (Int, Int)
 
 origin :: Point
 origin = (0,0)
 
-moveVertical :: Point -> Float -> Point
+moveVertical :: Point -> Int -> Point
 moveVertical (x, y) dy = (x, y + dy)
 -- moveVertical point dy = (fst point, snd point + dy)
 
-moveVertical' :: Point -> Float -> Point
+moveVertical' :: Point -> Int -> Point
 moveVertical' point dy = (fst point, snd point + dy)
 
-moveHorizontal :: Point -> Float -> Point
+moveHorizontal :: Point -> Int -> Point
 moveHorizontal (x, y) dx = (x + dx, y)
 
-moveHorizontal' :: Point -> Float -> Point
+moveHorizontal' :: Point -> Int -> Point
 moveHorizontal' point dx = (fst point + dx, snd point)
 
-squareTwo :: Float -> Float -> Float
+squareTwo :: Int -> Int -> Int
 squareTwo a b = a*a + b*b
 
 calculateDistance :: Point -> Float
-calculateDistance point = sqrt (squareTwo (fst point) (snd point)) - fst origin
+calculateDistance point = sqrt (fromIntegral (squareTwo (fst point) (snd point))) - fromIntegral (fst origin)
 
 -- Color point example
 type Color = String
