@@ -25,7 +25,8 @@ toDigitsRev x = (x `mod` 10) : toDigitsRev (x `div` 10)
 -- ===================================
 
 doubleSecond :: [Integer] -> [Integer]
-doubleSecond = undefined
+doubleSecond (x:y:xs) = x : 2*y : doubleSecond xs
+doubleSecond xs = xs
 
 -- ===================================
 -- Ex. 3
