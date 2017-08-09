@@ -33,7 +33,8 @@ doubleSecond xs = xs
 -- ===================================
 
 sumDigits :: [Integer] -> Integer
-sumDigits = undefined
+sumDigits [x] = sum (toDigits x)
+sumDigits (x:xs) = sum (toDigits x) + sumDigits xs
 
 
 -- ===================================
