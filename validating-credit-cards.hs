@@ -9,6 +9,7 @@ module Lab2 where
 -- ===================================
 
 toDigits :: Integer -> [Integer]
+toDigits x | x < 0 = error "Negative numbers are not allowed"
 toDigits 0 = []
 toDigits x = toDigits (x `div` 10) ++ [x `mod` 10]
 
@@ -17,6 +18,7 @@ toDigits x = toDigits (x `div` 10) ++ [x `mod` 10]
 -- ===================================
 
 toDigitsRev :: Integer -> [Integer]
+toDigitsRev x | x < 0 = error "Negative numbers are not allowed"
 toDigitsRev 0 = []
 toDigitsRev x = (x `mod` 10) : toDigitsRev (x `div` 10)
 
@@ -42,7 +44,7 @@ sumDigits (x:xs) = sum (toDigits x) + sumDigits xs
 -- ===================================
 
 isValid :: Integer -> Bool
-isValid = undefined
+isValid x = (sumDigits $ doubleSecond $ toDigitsRev x) `mod` 10 == 0
 
 
 -- ===================================
