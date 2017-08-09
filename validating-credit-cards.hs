@@ -8,19 +8,27 @@ module Lab2 where
 -- Ex. 0
 -- ===================================
 
+toDigitsNonZero :: Integer -> [Integer]
+toDigitsNonZero 0 = []
+toDigitsNonZero x = toDigitsNonZero (x `div` 10) ++ [x `mod` 10]
+
 toDigits :: Integer -> [Integer]
 toDigits x | x < 0 = error "Negative numbers are not allowed"
-toDigits 0 = []
-toDigits x = toDigits (x `div` 10) ++ [x `mod` 10]
+toDigits 0 = [0]
+toDigits x = toDigitsNonZero x
 
 -- ===================================
 -- Ex. 1
 -- ===================================
 
+toDigitsRevNonZero :: Integer -> [Integer]
+toDigitsRevNonZero 0 = []
+toDigitsRevNonZero x = (x `mod` 10) : toDigitsRevNonZero (x `div` 10)
+
 toDigitsRev :: Integer -> [Integer]
 toDigitsRev x | x < 0 = error "Negative numbers are not allowed"
-toDigitsRev 0 = []
-toDigitsRev x = (x `mod` 10) : toDigitsRev (x `div` 10)
+toDigitsRev 0 = [0]
+toDigitsRev x = toDigitsRevNonZero x
 
 -- ===================================
 -- Ex. 2
