@@ -27,6 +27,8 @@ toDigitsRev x = (x `mod` 10) : toDigitsRev (x `div` 10)
 -- ===================================
 
 doubleSecond :: [Integer] -> [Integer]
+doubleSecond (x:xs) | x < 0 = error "Negative numbers are not allowed"
+doubleSecond (x:y:xs) | y < 0 = error "Negative numbes are not allowed"
 doubleSecond (x:y:xs) = x : 2*y : doubleSecond xs
 doubleSecond xs = xs
 
